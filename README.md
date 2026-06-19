@@ -1,51 +1,27 @@
-# .
+# Установка проекта:
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+### Через консоль проверьте установлен ли у вас Node.js
+```bash
+node -v
+```
+### 1. Перейдите в папку MapBackend и установите пакеты
+```bash
 npm install
 ```
-
-### Compile and Hot-Reload for Development
-
-```sh
+### 2. Запускаем локальный сервер через:
+```bash
+npx tsx src/app.ts
+```
+  Если кодировка сломана, можете попробовать вести в консоль (на windows):
+```bash
+chcp 65001
+```
+### 3. Дальше, открываем вторую консоль и переходим в папку MapFrontend и установливаем пакеты:
+```bash
+npm install
+```
+### 4. Запускаем локальный сервер через:
+```bash
 npm run dev
 ```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
-
-сжатие регионов
-mapshaper "*.json" combine-files -merge-layers -simplify weighted 15% keep-shapes -o format=topojson output_regions.json
+### 5. Копируйте ссылку из терминала (обычно http://localhost:5173/) и вставляете в адресную строку
