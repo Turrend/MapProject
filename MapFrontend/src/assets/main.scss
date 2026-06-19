@@ -1,0 +1,19 @@
+@import "ol/ol.css";
+@import "@fontsource-variable/onest/index.css";
+
+$ui-font-primary: 'Onest Variable', sans-serif;
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f7fa;
+  font-family: $ui-font-primary;
+  font-weight: 400;
+  font-style: normal;
+  .ol-zoom {
+    top: auto;
+    left: auto;
+    bottom: 10px;
+    right: 10px;
+  }
+}

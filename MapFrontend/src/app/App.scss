@@ -1,0 +1,246 @@
+$ui-padding: 16px;
+$ui-radius: 16px;
+$ui-shadow: 0 4px 11px 0 rgba(0, 0, 0, 0.3);
+$ui-bg: #ffffff;
+$ui-text: #6b9ed0;
+$ui-text-second: #1f1f1f;
+$border-light: #eef2f5;
+
+.app-layer{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.map-layers {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  
+  background-color: $ui-bg;
+  padding: $ui-padding;
+  border-radius: $ui-radius;
+  box-shadow: $ui-shadow;
+  border: 1px solid #eef2f5;
+  
+  width: 240px;
+
+  h4 {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .layer-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .layer-main-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .btn-visibility {
+        width: 80px;
+        background-color: #f4f6f9;
+        border: 1px solid #dcdfe6;
+        border-radius: 6px;
+        font-size: 14px;
+        color: $ui-text-second;
+        cursor: pointer;
+        padding: 4px 8px;
+        
+        &:hover {
+          background-color: #eef2f5;
+        }
+      }
+
+      .layer-title {
+        font-size: 14px;
+        font-weight: 500;
+        color: $ui-text-second;
+      }
+    }
+
+    .opacity-control {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 4px;
+      
+      label {
+        font-size: 14px;
+        font-weight: 500;
+        color: $ui-text-second;
+      }
+
+      input[type="range"] {
+        width: 100%;
+        accent-color: #1f1f1f;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.popup-anchor {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+
+.map-popup {
+  position: absolute;
+  z-index: 100;
+  transform: translate(-50%, -100%); 
+  margin-top: -10px; 
+  
+  will-change: transform, opacity;
+
+  background-color: $ui-bg;
+  padding: $ui-padding;
+  border-radius: $ui-radius;
+  box-shadow: $ui-shadow;
+  border: 1px solid $border-light;
+  
+  min-width: 200px;
+  max-width: 400px;
+  color: $ui-text-second;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: $ui-bg transparent;
+    display: block;
+    width: 0;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: $ui-text-second;
+  }
+  .popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    border-bottom: 1px solid $border-light;
+    padding-bottom: 6px;
+
+
+    .popup-close-btn {
+      display: flex;
+      background: none;
+      border: none;
+      font-size: 18px;
+      color: #707070;
+      cursor: pointer;
+      
+      &:hover {
+        color: #f56565;
+      }
+    }
+  }
+}
+
+.map-search {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: system-ui, -apple-system, sans-serif;
+
+  .search-input-wrapper {
+    background-color: $ui-bg;
+    padding: 10px 14px;
+    border-radius: $ui-radius;
+    box-shadow: $ui-shadow;
+    border: 1px solid #eef2f5;
+
+    input {
+      display: flex;
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      color: $ui-text-second;
+      background: transparent;
+      font-family: inherit;
+      
+      &::placeholder {
+        color: #909399;
+      }
+    }
+  }
+
+
+  .search-results-list {
+    background-color: $ui-bg;
+    padding: 8px;
+    border-radius: $ui-radius;
+    box-shadow: $ui-shadow;
+    border: 1px solid #eef2f5;
+    max-height: 240px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+
+    .search-result-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.15s;
+
+      &:hover {
+        background-color: #f4f6f9;
+        
+        .result-title {
+          color: $ui-text;
+        }
+      }
+
+      .result-marker-dot {
+        width: 6px;
+        height: 6px;
+        background-color: #909399;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .result-title {
+        font-size: 14px;
+        font-weight: 500;
+        color: $ui-text-second;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
